@@ -8,19 +8,19 @@ import Alert from "../components/Alert";
 class Search extends Component {
   state = {
     search: "",
-    breeds: [],
+    employees: [],
     results: [],
     error: "",
     employeeArray:[]
   };
 
-  // When the component mounts, get a list of all available base breeds and update this.state.breeds
+  // When the component mounts, get a list of 200 employees and update this.state.employees
   componentDidMount() {
 
     API.getEmployee()
       .then(employeeRes=> this.setState({employeeArray:employeeRes.data.results}));
-    API.getBaseBreedsList()
-      .then(res => this.setState({ breeds: res.data.message }))
+    API.getBaseEmployeesList()
+      .then(res => this.setState({ employees: res.data.message }))
       .catch(err => console.log(err));
   }
 
@@ -30,7 +30,7 @@ class Search extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    API.getDogsOfBreed(this.state.search)
+    API.getEmployeesOfEmployee(this.state.search)
       .then(res => {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
@@ -43,7 +43,7 @@ class Search extends Component {
     return (
       <div>
         <Container style={{ minHeight: "80%" }}>
-          <h1 className="text-center">Search By Breed!</h1>
+          <h1 className="text-center">Search By Name!</h1>
           <Alert
             type="danger"
             style={{ opacity: this.state.error ? 1 : 0, marginBottom: 10 }}
@@ -53,7 +53,7 @@ class Search extends Component {
           <SearchForm
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
-            breeds={this.state.breeds}
+            breeds={this.state.employees}
           />
           <SearchResults results={this.state.results} />
         </Container>
