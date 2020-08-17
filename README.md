@@ -1,5 +1,26 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Description
+Using React.js, Developer will break up application's UI in to components, manage component state, and respond to user events. Utilize https://randomuser.me API to pull 200 records. 
+
+# Developer Creation
+1. Run this command in terminal: npx creat-react-app employee-directory
+2. Set up in Github with 1) git init  2) git add -A  3) git commit-m "description" 4) git remote add origin https://github.com/amandalmorris31/employee-directory.git  5) git remote -v  (to verity)  6) git push -u origin master 
+3. include a robust gitignore file, which includes node_modules at the root of the application.
+4. apply bootstrap and font awesome CDNs and link in to the index.html file for styling.
+
+
+# User Installation
+1. First step is to install npm.
+2. npm install axios react-router-dom
+Run node server
+
+ 
+# Usage
+A user will be able to view an entire employee directory at once to have quick access to their information, which will include employee image, name, phone, and email.  I will be able to search for employees by name.
+
+
+-------------------------------------------------
 ## Available Scripts
 
 In the project directory, you can run:
@@ -43,26 +64,4 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
