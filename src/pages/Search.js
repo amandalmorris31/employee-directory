@@ -19,9 +19,9 @@ class Search extends Component {
 
     API.getEmployee()
       .then(employeeRes=> this.setState({employeeArray:employeeRes.data.results}));
-    API.getBaseEmployeesList()
-      .then(res => this.setState({ employees: res.data.message }))
-      .catch(err => console.log(err));
+    // API.getBaseEmployeesList()
+    //   .then(res => this.setState({ employees: res.data.message }))
+    //   .catch(err => console.log(err));
   }
 
   handleInputChange = event => {
@@ -50,12 +50,13 @@ class Search extends Component {
           >
             {this.state.error}
           </Alert>
-          <SearchForm
+          {/* <SearchForm
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
             breeds={this.state.employees}
-          />
-          <SearchResults results={this.state.results} />
+          /> */}
+          <SearchResults 
+          employeeArray={this.state.employeeArray} />
         </Container>
       </div>
     );
