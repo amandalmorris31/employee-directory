@@ -1,0 +1,3 @@
+:nth-child(even) {
+    background-color: lightgrey;
+  }

@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+/* .row:nth-child(even) {
+  background-color: lightgrey;
+} */
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

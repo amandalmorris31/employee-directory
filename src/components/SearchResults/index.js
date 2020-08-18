@@ -9,9 +9,9 @@ function SearchResults(props) {
       {props.employeeArray.map(employeeArrayi => (
         <Row>
           <Col size="md-3">
-             <li key={employeeArrayi} className="list-group-item">
+             {/* <li key={employeeArrayi} className="list-group-item"> */}
              <img alt="Employee" src={employeeArrayi.picture.large} className="img-fluid" />
-             </li>
+             {/* </li> */}
           </Col>
           <Col size="md-3">
             {" "+employeeArrayi.name.first+" "+employeeArrayi.name.last}
@@ -26,6 +26,7 @@ function SearchResults(props) {
             
           </Col>
         </Row>
+        
       ))}
     </ul>
   );
