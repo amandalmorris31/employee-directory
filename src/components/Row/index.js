@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+// import "./style.css";
 
 function Row(props) {
   return <div className={`row${props.fluid ? "-fluid" : ""}`} {...props} />;
