@@ -30,7 +30,7 @@ class Search extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    API.getEmployeesOfEmployee(this.state.search)
+    API.getSearchedName(this.state.search)
       .then(res => {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
@@ -43,18 +43,18 @@ class Search extends Component {
     return (
       <div>
         <Container style={{ minHeight: "80%" }}>
-          <h1 className="text-center">Search By Name!</h1>
+          <h1 className="text-center">Search By Name</h1>
           <Alert
             type="danger"
             style={{ opacity: this.state.error ? 1 : 0, marginBottom: 10 }}
           >
             {this.state.error}
           </Alert>
-          {/* <SearchForm
+          <SearchForm
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
-            breeds={this.state.employees}
-          /> */}
+            employees={this.state.employees}
+          />
           <SearchResults 
           employeeArray={this.state.employeeArray} />
         </Container>

@@ -6,13 +6,10 @@ export default {
   getEmployee: function(){
     return axios.get("https://randomuser.me/api/?results=5&inc=picture,name,phone,email");
   },
-  // getRandomEmployee: function() {
-  //   return axios.get("https://randomuser.me/api/breeds/image/random");
-  // },
-  // getDogsOfBreed: function(breed) {
-  //   return axios.get("https://randomuser.me/api/breed/" + breed + "/images");
-  // },
-  // getBaseBreedsList: function() {
-  //   return axios.get("https://randomuser.me/api/breeds/list");
-  // }
+
+// getBaseEmployeesList()
+//   getRandomEmployee: function() {
+//     return axios.get("https://randomuser.me/api/names/image/random");
+//   },
+
 };

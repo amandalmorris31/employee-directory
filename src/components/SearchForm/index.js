@@ -3,6 +3,9 @@ import "./style.css";
 
 // Using the datalist element we can create autofill suggestions based on the props.names array
 function SearchForm(props) {
+console.log(props)
+
+
   return (
     <form className="search">
       <div className="form-group">
@@ -18,7 +21,7 @@ function SearchForm(props) {
           id="name"
         />
         <datalist id="names">
-          {props.names.map(name => (
+          {props.employees.map(name => (
             <option value={name} key={name} />
           ))}
         </datalist>
