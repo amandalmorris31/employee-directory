@@ -6,10 +6,8 @@ export default {
   getEmployee: function(){
     return axios.get("https://randomuser.me/api/?results=5&inc=picture,name,phone,email");
   },
-
-// getBaseEmployeesList()
-//   getRandomEmployee: function() {
-//     return axios.get("https://randomuser.me/api/names/image/random");
-//   },
+  getSearchedName: function() {
+    return axios.get("https://randomuser.me/api/");
+  },
 
 };

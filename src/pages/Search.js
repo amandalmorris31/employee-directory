@@ -19,18 +19,26 @@ class Search extends Component {
 
     API.getEmployee()
       .then(employeeRes=> this.setState({employeeArray:employeeRes.data.results}));
-    // API.getBaseEmployeesList()
-    //   .then(res => this.setState({ employees: res.data.message }))
-    //   .catch(err => console.log(err));
-  }
+   
+    }
 
+    getSearchedName = query =>{
+      console.log('this is inside of the getSearchedNames function, going to query: ', query);
+      // API.search(query)
+      // .then(res => this.setState({result: res.data}))
+    };
+    
   handleInputChange = event => {
+    console.log(event.target.value);
+    this.getSearchedName(event.target.value)
+  
     this.setState({ search: event.target.value });
   };
 
+  //When the form is submitted, search RandomUser for the value of this.state.search
   handleFormSubmit = event => {
     event.preventDefault();
-    API.getSearchedName(this.state.search)
+    this.getSearchedName(this.state.search)
       .then(res => {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
@@ -39,6 +47,7 @@ class Search extends Component {
       })
       .catch(err => this.setState({ error: err.message }));
   };
+
   render() {
     return (
       <div>
