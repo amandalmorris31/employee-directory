@@ -11,44 +11,56 @@ class Search extends Component {
     employees: [],
     results: [],
     error: "",
-    employeeArray:[]
+    employeeArray:[],
+    filteredArray:[]
   };
 
   // When the component mounts, get a list of 200 employees and update this.state.employees
   componentDidMount() {
 
     API.getEmployee()
-      .then(employeeRes=> this.setState({employeeArray:employeeRes.data.results}));
+      .then(employeeRes=> this.setState({
+        employeeArray:employeeRes.data.results,
+        filteredArray:employeeRes.data.results
+      }));
    
     }
 
-    getSearchedName = query =>{
-      console.log('this is inside of the getSearchedNames function, going to query: ', query);
-      // API.search(query)
-      // .then(res => this.setState({result: res.data}))
-    };
     
-  handleInputChange = event => {
-    console.log(event.target.value);
-    this.getSearchedName(event.target.value)
+    getSearchedName = (query) =>{
+      const {employeeArray} = this.state;
+      const filteredArray = employeeArray.filter((employee)=>{
+        // console.log(employee);
+        if (employee.name.first.includes(query) || employee.name.last.includes(query)){
+          return employee
+        }
+      })
+      return filteredArray;
+    };
   
-    this.setState({ search: event.target.value });
+//grabs the user input
+  handleInputChange = event => {
+    // console.log(event.target.value);
+
+    const filteredArray = this.getSearchedName(event.target.value)
+    
+    this.setState({ 
+      search: event.target.value,
+      filteredArray: filteredArray
+    });
   };
 
   //When the form is submitted, search RandomUser for the value of this.state.search
   handleFormSubmit = event => {
     event.preventDefault();
     this.getSearchedName(this.state.search)
-      .then(res => {
-        if (res.data.status === "error") {
-          throw new Error(res.data.message);
-        }
-        this.setState({ results: res.data.message, error: "" });
-      })
-      .catch(err => this.setState({ error: err.message }));
+      
+        // this.setState({ results: res.data.message, error: "" });
+      
   };
 
   render() {
+    console.log(this.state);
     return (
       <div>
         <Container style={{ minHeight: "80%" }}>
@@ -65,7 +77,7 @@ class Search extends Component {
             employees={this.state.employees}
           />
           <SearchResults 
-          employeeArray={this.state.employeeArray} />
+          employeeArray={this.state.filteredArray} />
         </Container>
       </div>
     );
