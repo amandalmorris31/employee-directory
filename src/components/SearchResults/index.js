@@ -9,7 +9,7 @@ function SearchResults(props) {
       {props.employeeArray.map(employeeArrayi => (
         <Row>
           <Col size="md-3">
-             <img alt="Employee" src={employeeArrayi.picture.large} className="img-fluid" />
+             <img alt="Employee" src={employeeArrayi.picture.medium} className="img-fluid" />
           </Col>
           <Col size="md-3">
             {" "+employeeArrayi.name.first+" "+employeeArrayi.name.last}

@@ -26,7 +26,6 @@ class Search extends Component {
    
     }
 
-    
     getSearchedName = (query) =>{
       const {employeeArray} = this.state;
       const filteredArray = employeeArray.filter((employee)=>{
@@ -54,8 +53,6 @@ class Search extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     this.getSearchedName(this.state.search)
-      
-        // this.setState({ results: res.data.message, error: "" });
       
   };
 
